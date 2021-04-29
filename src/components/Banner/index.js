@@ -1,13 +1,11 @@
 import React, { useState, useEffect } from "react";
 import Swiper from "react-id-swiper";
 import "swiper/css/swiper.css";
-import { Container, Slide, ButtonPrev, ButtonNext, Modernity } from "./styles";
+import { Container, Slide, ButtonPrev, ButtonNext } from "./styles";
 
 import ListBannerActions from "../../store/ducks/banner-list";
 import { useDispatch, useSelector } from "react-redux";
 
-import banner0 from "../../assets/images/bg-image.png";
-import banner1 from "../../assets/images/bg-image.png";
 import btnNext from "../../assets/images/btnNext.png";
 import btnPrev from "../../assets/images/btnPrev.png";
 

@@ -1,5 +1,8 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
+import { useDispatch, useSelector } from "react-redux";
 import { FaFacebookF, FaInstagram, FaArrowLeft } from "react-icons/fa";
+import ListAmbientesActions from "../../store/ducks/ambientes-list";
+import api from "../../services/api";
 import {
   Container,
   Estilos,
@@ -22,20 +25,14 @@ import useWindowSize from "../../hooks/useWindowSize";
 import { MenuDesktop as Menu, MenuMobile } from "../../components/Menu2";
 import Footer from "../../components/Footer";
 import EstiloBox from "../../components/EstiloBox";
-
-import moderno from "../../assets/images/salarusticacomp.png";
-import rustico from "../../assets/images/salarustcomp01.png";
-import vintage from "../../assets/images/estante.png";
-import retro from "../../assets/images/salarustcomp02.png";
-import industrial from "../../assets/images/mesacadeira.png";
-import tropical from "../../assets/images/poltrona.png";
-import quarto from "../../assets/images/quarto.png";
-import quartorustico from "../../assets/images/quartorustico.png";
+import { useParams } from "react-router";
 
 export default function AmbientesDetalhe() {
   const window = useWindowSize();
   const [open, setOpen] = useState(false);
   const [selected, setSelected] = useState(null);
+  const [fotos, setFotos] = useState([]);
+  const params = useParams();
 
   function handleShow(imagem) {
     setSelected(imagem);
@@ -45,6 +42,38 @@ export default function AmbientesDetalhe() {
   function handleClose() {
     setOpen(false);
   }
+
+  const dispatch = useDispatch();
+
+  async function handleSearchData() {
+    dispatch(ListAmbientesActions.listAmbientesRequest());
+  }
+
+  useEffect(() => {
+    handleSearchData();
+  }, []);
+
+  const { data: ambientesList } = useSelector((state) => state.ambientesList);
+
+  const ambiente = ambientesList?.filter(
+    (el) => el.id_ambiente === parseInt(params.id)
+  )[0];
+
+  const getFotos = async () => {
+    try {
+      const res = await api.get(
+        `/ambiente/fotos?idAmbiente=${ambiente.id_ambiente}`
+      );
+      setFotos(res?.data?.data);
+    } catch (error) {
+      console.log("arquitetos error", error?.response?.data);
+    }
+  };
+
+  useEffect(() => {
+    getFotos();
+  }, [ambiente]);
+
   return (
     <Container>
       {window.width > 950 ? <Menu /> : <MenuMobile />}
@@ -54,43 +83,30 @@ export default function AmbientesDetalhe() {
           <FaArrowLeft size={15} />
           VOLTAR
         </BackButton>
-        <TitleAmb>Nome do ambiente, Nome do arquiteto</TitleAmb>
+        <TitleAmb>{`${ambiente?.nome_ambiente}, ${ambiente?.nome_arquiteto}`}</TitleAmb>
         <SubtitleArq>
-          Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
-          eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad
-          minim veniam, quis nostrud exercitation ullamco laboris nisi ut
-          aliquip ex ea commodo consequat. Duis aute irure dolor in
-          reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla
-          pariatur. Excepteur sint occaecat cupidatat non proident, sunt in
-          culpa qui officia deserunt mollit anim id est laborum.
+          {`${ambiente?.descricao_ambiente} - ${ambiente?.descricao_arquiteto}`}
         </SubtitleArq>
         <DivSociais>
           <FollowArchitect>SIGA ESSE ARQUITETO(a):</FollowArchitect>
           <DivLogos>
-            <Instagram>
+            <Instagram href={ambiente?.instagram} target="_blank">
               <FaInstagram size={22} />
             </Instagram>
-            <Facebook>
+            <Facebook href={ambiente?.facebook} target="_blank">
               <FaFacebookF size={22} />
             </Facebook>
           </DivLogos>
         </DivSociais>
       </TitlePage>
       <Estilos>
-        <EstiloBox onclick={() => handleShow(moderno)} img={moderno} />
-        <EstiloBox onclick={() => handleShow(rustico)} img={rustico} />
-
-        <EstiloBox onclick={() => handleShow(vintage)} img={vintage} />
-        <EstiloBox onclick={() => handleShow(retro)} img={retro} />
-
-        <EstiloBox onclick={() => handleShow(industrial)} img={industrial} />
-        <EstiloBox onclick={() => handleShow(tropical)} img={tropical} />
-
-        <EstiloBox onclick={() => handleShow(quarto)} img={quarto} />
-        <EstiloBox
-          onclick={() => handleShow(quartorustico)}
-          img={quartorustico}
-        />
+        {fotos.map((foto, index) => (
+          <EstiloBox
+            key={index}
+            onclick={() => handleShow(foto.foto)}
+            img={foto.foto}
+          />
+        ))}
       </Estilos>
       <Modal open={open} onClick={() => setOpen(!open)}>
         <BoxModal>

@@ -85,7 +85,7 @@ export const DivLogos = styled.div`
   margin-top: 13px;
 `;
 
-export const Instagram = styled.p`
+export const Instagram = styled.a`
   width: 52px;
   height: 52px;
   border-radius: 50%;
@@ -98,7 +98,7 @@ export const Instagram = styled.p`
   justify-content: center;
 `;
 
-export const Facebook = styled.p`
+export const Facebook = styled.a`
   width: 52px;
   height: 52px;
   border-radius: 50%;

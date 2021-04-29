@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 
 import {
   Container,
@@ -20,14 +20,50 @@ import {
 
 import useWindowSize from "../../hooks/useWindowSize";
 
+import ContatoActions from "../../store/ducks/contato";
+
+import { Form as UnForm } from "@unform/web";
 import { FaWhatsapp } from "react-icons/fa";
 
 import { MenuDesktop as Menu, MenuMobile } from "../../components/Menu2";
 import Footer from "../../components/Footer";
 import { colors } from "../../styles/colors";
+import { useDispatch, useSelector } from "react-redux";
 
 export default function Contato() {
   const window = useWindowSize();
+  const dispatch = useDispatch();
+
+  const [nome, setNome] = useState("");
+  const [email, setEmail] = useState("");
+  const [telefone, setTelefone] = useState("");
+  const [mensagem, setMensagem] = useState("");
+
+  const { loading, success } = useSelector((state) => state.contatoList);
+
+  async function handleSubmit() {
+    try {
+      const formData = new FormData();
+
+      formData.append("nome", nome);
+      formData.append("email", email);
+      formData.append("telefone", telefone);
+      formData.append("mensagem", mensagem);
+
+      dispatch(ContatoActions.contatoRequest(formData));
+    } catch (err) {
+      console.log(err.message);
+    }
+  }
+
+  useEffect(() => {
+    if (success) {
+      setNome("");
+      setEmail("");
+      setTelefone("");
+      setMensagem("");
+    }
+  }, [success]);
 
   return (
     <Container>
@@ -51,15 +87,35 @@ export default function Contato() {
           Ligue: (24) 3343-1350 | (24) 99317-9822. Ou mande-nos uma mensagem:
         </SubTitle>
         <DataRegistration>
-          <Form>
-            <InputText nome type="text" placeholder="Seu Nome" />
+          <UnForm onSubmit={handleSubmit} encType="multipart/form-data">
+            <InputText
+              nome
+              type="text"
+              placeholder="Seu Nome"
+              value={nome}
+              onChange={(text) => setNome(text.target.value)}
+            />
             <RowForm>
-              <InputText type="text" placeholder="E-mail" />
-              <InputText type="text" placeholder="Telefone" />
+              <InputText
+                type="text"
+                value={email}
+                placeholder="E-mail"
+                onChange={(text) => setEmail(text.target.value)}
+              />
+              <InputText
+                type="text"
+                value={telefone}
+                placeholder="Telefone"
+                onChange={(text) => setTelefone(text.target.value)}
+              />
             </RowForm>
-            <TextArea placeholder="Mensagem" />
-            <Button>ENVIAR MENSAGEM</Button>
-          </Form>
+            <TextArea
+              placeholder="Mensagem"
+              value={mensagem}
+              onChange={(text) => setMensagem(text.target.value)}
+            />
+            <Button>{loading ? "Enviando..." : "ENVIAR MENSAGEM"}</Button>
+          </UnForm>
         </DataRegistration>
         <Divider contato />
         <Title>Onde Estamos</Title>

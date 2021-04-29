@@ -6,7 +6,8 @@ const headers = {
 };
 
 const api = axios.create({
-  baseURL: "http://localhost:3333/",
+  // baseURL: "http://localhost:3333/",
+  baseURL: "https://casabelavista-api.herokuapp.com/",
 });
 
 const queryBuilder = (params) => {

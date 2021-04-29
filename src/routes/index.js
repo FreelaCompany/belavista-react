@@ -12,7 +12,7 @@ export default function Routes() {
     <Switch>
       <Route path="/" exact component={Home} />
       <Route path="/ambientes" exact component={Ambientes} />
-      <Route path="/ambientes-detalhe" exact component={AmbientesDetalhe} />
+      <Route path="/ambientes/:id" exact component={AmbientesDetalhe} />
       <Route path="/sobre" exact component={Sobre} />
       <Route path="/contato" exact component={Contato} />
     </Switch>

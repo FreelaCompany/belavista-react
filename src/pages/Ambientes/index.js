@@ -1,21 +1,34 @@
-import React from "react";
-import { Container, Estilos, TitlePage, Divider, TitleAmbIns, SubtitlePagAmbIns  } from "./styles";
-
+import React, { useEffect } from "react";
+import { useDispatch, useSelector } from "react-redux";
+import {
+  Container,
+  Estilos,
+  TitlePage,
+  TitleAmbIns,
+  SubtitlePagAmbIns,
+} from "./styles";
 import useWindowSize from "../../hooks/useWindowSize";
+
+import ListAmbientesActions from "../../store/ducks/ambientes-list";
 
 import { MenuDesktop as Menu, MenuMobile } from "../../components/Menu2";
 import Footer from "../../components/Footer";
 import EstiloBox from "../../components/EstiloBox";
 
-import moderno from "../../assets/images/moderno.png";
-import rustico from "../../assets/images/rustico.png";
-import vintage from "../../assets/images/vintage.png";
-import retro from "../../assets/images/retro.png";
-import industrial from "../../assets/images/industrial.png";
-import tropical from "../../assets/images/tropical.png";
-
 export default function Ambientes() {
   const window = useWindowSize();
+  const dispatch = useDispatch();
+
+  async function handleSearchData() {
+    dispatch(ListAmbientesActions.listAmbientesRequest());
+  }
+
+  useEffect(() => {
+    handleSearchData();
+  }, []);
+
+  const { data: ambientesList } = useSelector((state) => state.ambientesList);
+
   return (
     <Container>
       {window.width > 950 ? <Menu /> : <MenuMobile />}
@@ -27,38 +40,13 @@ export default function Ambientes() {
         </SubtitlePagAmbIns>
       </TitlePage>
       <Estilos>
-        <EstiloBox
-          link="/ambientes-detalhe"
-          img={moderno}
-          title="Nome do ambiente, Nome do arquiteto"
-        />
-        <EstiloBox
-          link="/ambientes-detalhe"
-          img={rustico}
-          title="Nome do ambiente, Nome do arquiteto"
-        />
-        <Divider />
-        <EstiloBox
-          link="/ambientes-detalhe"
-          img={vintage}
-          title="Nome do ambiente, Nome do arquiteto"
-        />
-        <EstiloBox
-          link="/ambientes-detalhe"
-          img={retro}
-          title="Nome do ambiente, Nome do arquiteto "
-        />
-        <Divider />
-        <EstiloBox
-          link="/ambientes-detalhe"
-          img={industrial}
-          title="Nome do ambiente, Nome do arquiteto"
-        />
-        <EstiloBox
-          link="/ambientes-detalhe"
-          img={tropical}
-          title="Nome do ambiente, Nome do arquiteto"
-        />
+        {ambientesList?.map((ambiente) => (
+          <EstiloBox
+            link={`/ambientes/${ambiente.id_ambiente}`}
+            img={ambiente.foto}
+            title={`${ambiente.nome_ambiente}, ${ambiente.nome_arquiteto}`}
+          />
+        ))}
       </Estilos>
       <Footer />
     </Container>

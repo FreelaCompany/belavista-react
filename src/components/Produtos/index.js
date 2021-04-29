@@ -51,8 +51,8 @@ export default function Produtos() {
       <DivProdutos>
         {produtosList
           ?.filter((produto) => produto.id_categoria === categoria)
-          .map((produto) => (
-            <Produto url={produto.foto} />
+          .map((produto, index) => (
+            <Produto key={index} url={produto.foto} />
           ))}
       </DivProdutos>
     </Container>

@@ -102,6 +102,10 @@ export const DataRegistration = styled.div`
   font-size: 18px;
   border: ${colors.grayLight4};
   display: flex;
+
+  form {
+    width: 100%;
+  }
 `;
 
 export const Form = styled.form`
