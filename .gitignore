@@ -28,3 +28,8 @@ debug.log*
 
 package-lock.json
 yarn.lock
+package-lock.json
+yarn.lock
+settings.json
+.vscode/settings.json
+.vscode
