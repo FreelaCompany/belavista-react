@@ -13,7 +13,7 @@ import {
 
 import useWindowSize from "../../hooks/useWindowSize";
 
-import { MenuDesktop as Menu, MenuMobile } from "../../components/Menu2";
+import Menu from "../../components/Menu";
 
 import sier from "../../assets/images/parceiro1.png";
 import bellart from "../../assets/images/parceiro2.png";
@@ -25,43 +25,40 @@ export default function Sobre() {
 
   return (
     <Container>
-      {window.width > 950 ? <Menu /> : <MenuMobile />}
+      <Menu />
       <Banner />
       <Content>
         <Title>Sobre nós</Title>
         <DivTexto>
           <Paragraph>
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
-            eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim
-            ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut
-            aliquip ex ea commodo consequat. Duis aute irure dolor in
-            reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla
-            pariatur. Excepteur sint occaecat cupidatat non proident, sunt in
-            culpa qui officia deserunt mollit anim id est laborum.
+            A Casa Bela Vista é um novo conceito no segmento de alta decoração
+            na região Sul Fluminense. A loja consta com 22 ambiente que foram
+            projetados e decorados pelos arquitetos mais renomados. São 1000 m²
+            de mostra com ambientes únicos.
           </Paragraph>
           <Paragraph>
-            Sed ut perspiciatis unde omnis iste natus error sit voluptatem
-            accusantium doloremque laudantium, totam rem aperiam, eaque ipsa
-            quae ab illo inventore veritatis et quasi architecto beatae vitae
-            dicta sunt explicabo. Nemo enim ipsam voluptatem quia voluptas sit
-            aspernatur aut odit aut fugit, sed quia consequuntur magni dolores
-            eos qui ratione voluptatem sequi nesciunt.
+            Você encontra qualidade, móveis exclusivos assinados pelos maiores
+            designers do mundo e grandes marcas. E variados estilos sendo
+            clássico, romântico, moderno, vintage, retrô e rústico.
           </Paragraph>
           <Paragraph>
-            Neque porro quisquam est, qui dolorem ipsum quia dolor sit amet,
-            consectetur, adipisci velit, sed quia non numquam eius modi tempora
-            incidunt ut labore et dolore magnam aliquam quaerat voluptatem. Ut
-            enim ad minima veniam, quis nostrum exercitationem ullam corporis
-            suscipit laboriosam, nisi ut aliquid ex ea commodi consequatur? Quis
-            autem vel eum iure reprehenderit qui in ea voluptate.
+            Todas as opções de móveis expostos podem estar na sua casa! Mude
+            completamente o seu ambiente com as opções da Casa Bela Vista!
           </Paragraph>
+          <Paragraph>Inovação, design, requinte e exclusividade.</Paragraph>
         </DivTexto>
         <Divider />
         <Title parceiros>Marcas Parceiras</Title>
         <DivParceiros>
-          <Parceiro src={sier} alt="" />
-          <Parceiro src={bellart} alt="" />
-          <Parceiro src={greenhouse} alt="" />
+          <a href="http://siermoveis.com.br/pt_br/" target="_blank">
+            <Parceiro src={sier} alt="" />
+          </a>
+          <a href="https://www.bellarte.com.br/" target="_blank">
+            <Parceiro src={bellart} alt="" />
+          </a>
+          <a href="https://www.greenhousemoveis.com.br/" target="_blank">
+            <Parceiro src={greenhouse} alt="" />
+          </a>
         </DivParceiros>
       </Content>
       <Footer />

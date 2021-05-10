@@ -26,7 +26,8 @@ export const DivBotoes = styled.div`
   justify-content: space-between;
   align-items: center;
   flex-wrap: wrap;
-  width: 800px;
+  max-width: 800px;
+  width: 90%;
   margin: 15px 0;
 `;
 
@@ -39,16 +40,25 @@ export const ButtonFiltro = styled.button`
   text-transform: uppercase;
   color: ${colors.veryDarkGray2};
   ${(props) => props.active && `color: ${colors.black};`};
+
+  @media (max-width: 847px) {
+    margin: 10px;
+  }
 `;
 
 export const DivProdutos = styled.div`
-  width: 1220px;
+  max-width: 1220px;
+  width: 90%;
   display: flex;
   flex-direction: row;
   justify-content: space-between;
   align-items: center;
   flex-wrap: wrap;
   margin-top: 20px;
+
+  @media (max-width: 896px) {
+    justify-content: center;
+  }
 `;
 
 export const Produto = styled.div`

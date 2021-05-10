@@ -18,7 +18,8 @@ export const Container = styled.div`
 
 export const Content = styled.div`
   height: 532px;
-  width: 1200px;
+  max-width: 1200px;
+  width: 90%;
   background-image: url(${sobre1});
   background-repeat: no-repeat;
   background-size: cover;
@@ -27,6 +28,41 @@ export const Content = styled.div`
   justify-content: space-around;
   align-items: center;
   padding: 77px 115px 100px 100px;
+
+  @media (max-width: 420px) {
+    padding: 167px 33px 60px 38px;
+    .espaço {
+      display: none;
+    }
+  }
+  @media (min-width: 421px) and (max-width: 576px) {
+    padding: 167px 33px 60px 38px;
+    .espaço {
+      display: none;
+    }
+  }
+
+  @media (min-width: 577px) and (max-width: 767px) {
+    padding: 167px 33px 60px 38px;
+
+    .espaço {
+      display: none;
+    }
+  }
+
+  @media (min-width: 768px) and (max-width: 991px) {
+    padding: 167px 33px 60px 38px;
+    .espaço {
+      display: none;
+    }
+  }
+  @media (min-width: 992px) and (max-width: 1199px) {
+    padding: 35px 33px 60px 38px;
+
+    .espaço {
+      display: block;
+    }
+  }
 `;
 
 export const DivLeft = styled.div`
@@ -43,6 +79,40 @@ export const DivLeft = styled.div`
   flex-direction: column;
   justify-content: space-between;
   align-items: flex-start;
+
+  @media (max-width: 576px) {
+    height: 204px !important;
+    width: 204px !important;
+    left: -19px;
+    top: -19px;
+    padding: 42px 31px;
+  }
+  @media (min-width: 577px) and (max-width: 767px) {
+    height: 270px !important;
+    width: 270px !important;
+    left: -19px;
+    top: -65px;
+    padding: 42px 31px 50px 31px;
+  }
+
+  @media (min-width: 768px) and (max-width: 991px) {
+    height: 270px !important;
+    width: 270px !important;
+    left: -19px;
+    top: -90px;
+    padding: 42px 31px 50px 31px;
+  }
+  @media (min-width: 992px) and (max-width: 1199px) {
+    height: 350px;
+    width: 350px;
+    position: absolute;
+    left: -29px;
+    top: 48px;
+    padding: 15px 55px 45px 60px;
+    justify-content: space-evenly;
+  }
+  @media (min-width: 1200px) {
+  }
 `;
 
 export const Title = styled.h1`
@@ -52,6 +122,19 @@ export const Title = styled.h1`
   text-transform: uppercase;
   width: 200px;
   position: relative;
+
+  @media (max-width: 576px) {
+    font-size: 13px;
+    width: 100%;
+  }
+  @media (min-width: 577px) and (max-width: 767px) {
+    font-size: 18px;
+    width: 100%;
+  }
+  @media (min-width: 768px) and (max-width: 991px) {
+    font-size: 18px;
+    width: 100%;
+  }
 `;
 
 export const SubTitle = styled.p`
@@ -65,6 +148,23 @@ export const SubTitle = styled.p`
   span {
     color: ${colors.pumpikinLight1};
   }
+
+  @media (max-width: 576px) {
+    font-size: 24px;
+    width: 100%;
+    line-height: 30px;
+  }
+  @media (min-width: 577px) and (max-width: 767px) {
+    font-size: 34px;
+    width: 100%;
+    line-height: 44px;
+  }
+
+  @media (min-width: 768px) and (max-width: 991px) {
+    font-size: 34px;
+    width: 100%;
+    line-height: 44px;
+  }
 `;
 
 export const DivRight = styled.div`
@@ -76,6 +176,19 @@ export const DivRight = styled.div`
   display: flex;
   flex-direction: column;
   justify-content: space-between;
+
+  @media (max-width: 576px) {
+    width: 100%;
+    justify-content: space-evenly;
+  }
+  @media (min-width: 577px) and (max-width: 767px) {
+    width: 100%;
+    justify-content: space-evenly;
+  }
+  @media (min-width: 768px) and (max-width: 991px) {
+    width: 100%;
+    justify-content: space-evenly;
+  }
 `;
 
 export const Description = styled.p`
@@ -84,6 +197,25 @@ export const Description = styled.p`
   font-size: 20px;
   width: 515px;
   line-height: 38px;
+
+  @media (max-width: 420px) {
+    font-size: 12px;
+    width: 100%;
+    line-height: 18px;
+  }
+  @media (min-width: 421px) and (max-width: 576px) {
+    font-size: 15px;
+    width: 100%;
+    line-height: 30px;
+  }
+  @media (min-width: 577px) and (max-width: 991px) {
+    font-family: "PlayFair", sans-serif;
+    color: #fff;
+    font-size: 17px;
+    width: 100%;
+    line-height: 29px;
+    padding: 0 33px;
+  }
 `;
 
 export const Separator = styled.div`
@@ -99,6 +231,16 @@ export const DivBottom = styled.div`
   flex-direction: row;
   justify-content: space-between;
   align-items: center;
+
+  @media (max-width: 420px) {
+    flex-direction: column;
+    justify-content: space-evenly;
+    align-items: center;
+    height: 83px;
+  }
+  @media (min-width: 421px) and (max-width: 991px) {
+    justify-content: space-evenly;
+  }
 `;
 
 export const Location = styled.p`
@@ -108,10 +250,21 @@ export const Location = styled.p`
   display: flex;
   justify-content: space-between;
   align-items: center;
+  @media (max-width: 420px) {
+    width: 100%;
+    justify-content: center;
+  }
   span {
     width: 85%;
     font-size: 15px;
     text-transform: uppercase;
+    @media (max-width: 420px) {
+      font-size: 10px;
+      margin-left: 10px;
+    }
+    @media (min-width: 421px) and (max-width: 576px) {
+      font-size: 12px;
+    }
   }
 `;
 
@@ -122,10 +275,24 @@ export const WhatsApp = styled.p`
   display: flex;
   justify-content: space-between;
   align-items: center;
+  @media (max-width: 420px) {
+    width: 100%;
+    justify-content: center;
+  }
   span {
     width: 80%;
     text-align: right;
     font-size: 20px;
+
+    @media (max-width: 420px) {
+      text-align: left;
+      font-size: 18px;
+      margin-left: 10px;
+    }
+    @media (min-width: 421px) and(max-width: 576px) {
+      text-align: left;
+      font-size: 18px;
+    }
   }
 `;
 

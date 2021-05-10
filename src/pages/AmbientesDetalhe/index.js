@@ -22,7 +22,7 @@ import {
 
 import useWindowSize from "../../hooks/useWindowSize";
 
-import { MenuDesktop as Menu, MenuMobile } from "../../components/Menu2";
+import Menu from "../../components/Menu";
 import Footer from "../../components/Footer";
 import EstiloBox from "../../components/EstiloBox";
 import { useParams } from "react-router";
@@ -76,8 +76,7 @@ export default function AmbientesDetalhe() {
 
   return (
     <Container>
-      {window.width > 950 ? <Menu /> : <MenuMobile />}
-
+      <Menu />
       <TitlePage>
         <BackButton to="/ambientes">
           <FaArrowLeft size={15} />

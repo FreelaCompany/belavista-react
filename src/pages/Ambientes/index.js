@@ -11,7 +11,7 @@ import useWindowSize from "../../hooks/useWindowSize";
 
 import ListAmbientesActions from "../../store/ducks/ambientes-list";
 
-import { MenuDesktop as Menu, MenuMobile } from "../../components/Menu2";
+import Menu from "../../components/Menu";
 import Footer from "../../components/Footer";
 import EstiloBox from "../../components/EstiloBox";
 
@@ -31,7 +31,7 @@ export default function Ambientes() {
 
   return (
     <Container>
-      {window.width > 950 ? <Menu /> : <MenuMobile />}
+      <Menu />
       <TitlePage>
         <TitleAmbIns>Ambientes e Inspirações</TitleAmbIns>
         <SubtitlePagAmbIns>

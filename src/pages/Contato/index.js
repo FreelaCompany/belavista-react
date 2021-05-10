@@ -25,7 +25,7 @@ import ContatoActions from "../../store/ducks/contato";
 import { Form as UnForm } from "@unform/web";
 import { FaWhatsapp } from "react-icons/fa";
 
-import { MenuDesktop as Menu, MenuMobile } from "../../components/Menu2";
+import Menu from "../../components/Menu";
 import Footer from "../../components/Footer";
 import { colors } from "../../styles/colors";
 import { useDispatch, useSelector } from "react-redux";
@@ -67,7 +67,7 @@ export default function Contato() {
 
   return (
     <Container>
-      {window.width > 950 ? <Menu /> : <MenuMobile />}
+      <Menu />
       <Banner />
       <Content>
         <Title>Orçamentos por WhatsApp</Title>

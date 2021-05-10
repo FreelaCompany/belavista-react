@@ -1,7 +1,13 @@
 import React, { useState, useEffect } from "react";
 import Swiper from "react-id-swiper";
 import "swiper/css/swiper.css";
-import { Container, Slide, ButtonPrev, ButtonNext } from "./styles";
+import {
+  Container,
+  Slide,
+  ButtonPrev,
+  ButtonNext,
+  SlideMobile,
+} from "./styles";
 
 import ListBannerActions from "../../store/ducks/banner-list";
 import { useDispatch, useSelector } from "react-redux";
@@ -48,15 +54,29 @@ export default function Banner() {
 
   const { data: bannerList } = useSelector((state) => state.bannerList);
 
-  console.log(bannerList);
+  function returnSlides(data) {
+    return data.link !== "null" ? (
+      <a
+        href={data.link}
+        target="_blank"
+        key={data.id_banner}
+        rel="noopener noreferrer">
+        <Slide url={data.banner} />
+        <SlideMobile url={data.banner_mobile} />
+      </a>
+    ) : (
+      <a key={data.id_banner} rel="noopener noreferrer">
+        <Slide url={data.banner} />
+        <SlideMobile url={data.banner_mobile} />
+      </a>
+    );
+  }
 
   return (
     <Container id="banner">
       {bannerList && (
-        <Swiper getSwiper={updateSwiper} {...params}>
-          {bannerList.map((banner) => (
-            <Slide url={banner.banner} />
-          ))}
+        <Swiper getSwiper={updateSwiper} {...params} shouldSwiperUpdate>
+          {bannerList?.map((banner) => returnSlides(banner))}
         </Swiper>
       )}
       {/* <Modernity>modernidade</Modernity> */}

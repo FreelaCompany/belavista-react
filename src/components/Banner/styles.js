@@ -1,9 +1,14 @@
 import styled from "styled-components";
 import { colors } from "../../styles/colors";
 
-export const Container = styled.section`
+export const Container = styled.div`
   width: 100%;
   height: 768px;
+
+  @media (max-width: 576px) {
+    height: 382px;
+    margin-top: 203px;
+  }
 
   .swiper-pagination {
     margin-bottom: 38px;
@@ -17,6 +22,20 @@ export const Container = styled.section`
 
   .swiper-pagination-bullet-active {
     background: ${colors.white};
+  }
+`;
+
+export const SlideMobile = styled.div`
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  width: 100%;
+  height: 382px;
+  background: ${({ url }) =>
+    url ? `url(${url}) no-repeat center center;` : `none`};
+  background-size: cover;
+  @media (min-width: 578px) {
+    display: none;
   }
 `;
 
@@ -38,10 +57,13 @@ export const Slide = styled.div`
   flex-direction: column;
   justify-content: center;
   width: 100%;
-  height: 768px;
+  height: 671px;
   background: ${({ url }) =>
     url ? `url(${url}) no-repeat center center;` : `none`};
   background-size: cover;
+  @media (max-width: 577px) {
+    display: none;
+  }
 `;
 
 export const ButtonPrev = styled.button`
@@ -66,19 +88,21 @@ export const ButtonPrev = styled.button`
     right: 154px;
   }
 
-  @media screen and (max-width: 680px) {
+  @media screen and (max-width: 576px) {
     left: 48px;
-    top: 40%;
+    top: 55%;
   }
 `;
 
 export const ButtonNext = styled.button`
   display: flex;
+  justify-content: center;
+  width: 50px;
+  height: 70px;
   align-items: center;
-  padding: 8px;
   border-radius: 50%;
   background-color: transparent;
-  color: ${colors.white}; 
+  color: ${colors.white};
   position: absolute;
   z-index: 999;
   right: 48px;
@@ -91,11 +115,11 @@ export const ButtonNext = styled.button`
 
   @media screen and (max-width: 1100px) {
     transform: scale(1.3);
-    right: 154px;
+    right: 48px;
   }
 
-  @media screen and (max-width: 680px) {
+  @media screen and (max-width: 576px) {
     right: 48px;
-    top: 40%;
+    top: 55%;
   }
 `;

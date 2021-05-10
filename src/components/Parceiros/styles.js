@@ -6,7 +6,7 @@ export const Container = styled.div`
   width: 100%;
   height: 308px;
   background: ${colors.white};
-  padding: 72px;
+  padding: ${(props) => (props.sobre ? "42px 72px 72px 72px" : "72px")};
   display: flex;
   flex-direction: column;
   justify-content: space-between;

@@ -64,12 +64,16 @@ export default function Footer() {
           <DivSociais>
             <TitleSociais>Siga-nos</TitleSociais>
             <DivLogos>
-              <Instagram>
-                <FaInstagram size={32} />
-              </Instagram>
-              <Facebook>
-                <FaFacebookF size={32} />
-              </Facebook>
+              <a href="https://www.instagram.com/casabelavistavr/">
+                <Instagram>
+                  <FaInstagram size={32} />
+                </Instagram>
+              </a>
+              <a href="https://www.facebook.com/casabelavistavr">
+                <Facebook>
+                  <FaFacebookF size={32} />
+                </Facebook>
+              </a>
             </DivLogos>
           </DivSociais>
         </DivSuperior>

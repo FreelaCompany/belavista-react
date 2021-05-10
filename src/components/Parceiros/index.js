@@ -9,7 +9,7 @@ import parceiro1 from "../../assets/images/parceiro1.png";
 import parceiro2 from "../../assets/images/parceiro2.png";
 import parceiro3 from "../../assets/images/parceiro3.png";
 
-export default function Parceiros() {
+export default function Parceiros({ sobre }) {
   const params = {
     loop: false,
     autoplay: {
@@ -24,13 +24,19 @@ export default function Parceiros() {
   };
 
   return (
-    <Container>
+    <Container sobre>
       <Title>Marcas Parceiras</Title>
       <Content>
         <Swiper {...params}>
-          <Slide url={parceiro1} />
-          <Slide url={parceiro2} />
-          <Slide url={parceiro3} />
+          <a href="http://siermoveis.com.br/pt_br/" target="_blank">
+            <Slide url={parceiro1} />
+          </a>
+          <a href="https://www.bellarte.com.br/" target="_blank">
+            <Slide url={parceiro2} />
+          </a>
+          <a href="https://www.greenhousemoveis.com.br/" target="_blank">
+            <Slide url={parceiro3} />
+          </a>
         </Swiper>
       </Content>
     </Container>

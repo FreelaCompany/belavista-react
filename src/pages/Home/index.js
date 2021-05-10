@@ -5,7 +5,7 @@ import useWindowSize from "../../hooks/useWindowSize";
 
 import Banner from "../../components/Banner";
 import Sobre from "../../components/Sobre";
-import { MenuDesktop as Menu, MenuMobile } from "../../components/Menu2";
+import Menu from "../../components/Menu";
 import Orcamento from "../../components/Orcamento";
 import InspiracaoAmbiente from "../../components/Inspiracao&Ambiente";
 import Parceiros from "../../components/Parceiros";
@@ -16,7 +16,7 @@ export default function Home() {
   const window = useWindowSize();
   return (
     <Container>
-      {window.width > 950 ? <Menu /> : <MenuMobile />}
+      <Menu />
       <Banner />
       <Sobre />
       <Produtos />

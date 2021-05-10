@@ -26,7 +26,7 @@ export default function Sobre() {
             Loja de móveis e alta decoração<span>.</span>
           </SubTitle>
         </DivLeft>
-        <DivRight></DivRight>
+        <DivRight className="espaço"></DivRight>
         <DivRight>
           <Description>
             Queremos trazer mais personalidade pra sua casa ou empresa! Somos
