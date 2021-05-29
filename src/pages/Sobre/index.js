@@ -15,6 +15,8 @@ import useWindowSize from "../../hooks/useWindowSize";
 
 import Menu from "../../components/Menu";
 
+import Parceiros from "../../components/Parceiros";
+
 import sier from "../../assets/images/parceiro1.png";
 import bellart from "../../assets/images/parceiro2.png";
 import greenhouse from "../../assets/images/parceiro3.png";
@@ -48,19 +50,8 @@ export default function Sobre() {
           <Paragraph>Inovação, design, requinte e exclusividade.</Paragraph>
         </DivTexto>
         <Divider />
-        <Title parceiros>Marcas Parceiras</Title>
-        <DivParceiros>
-          <a href="http://siermoveis.com.br/pt_br/" target="_blank">
-            <Parceiro src={sier} alt="" />
-          </a>
-          <a href="https://www.bellarte.com.br/" target="_blank">
-            <Parceiro src={bellart} alt="" />
-          </a>
-          <a href="https://www.greenhousemoveis.com.br/" target="_blank">
-            <Parceiro src={greenhouse} alt="" />
-          </a>
-        </DivParceiros>
       </Content>
+      <Parceiros />
       <Footer />
     </Container>
   );

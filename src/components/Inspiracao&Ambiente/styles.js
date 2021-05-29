@@ -10,6 +10,9 @@ export const Container = styled.div`
   justify-content: space-between;
   align-items: center;
   padding: 88px;
+  @media (max-width: 575px) {
+    padding: 88px 0;
+  }
 `;
 
 export const Title = styled.h1`
@@ -31,6 +34,14 @@ export const Description = styled.p`
   span {
     color: ${colors.pumpikinLight1};
   }
+
+  @media (max-width: 575px) {
+    max-width: 532px;
+    width: 90%;
+    font-size: 35px;
+    height: unset;
+    line-height: 38px;
+  }
 `;
 
 export const Legenda = styled.span`
@@ -44,6 +55,10 @@ export const Content = styled.div`
   max-width: 1200px;
   height: 401px;
   position: relative;
+
+  @media (max-width: 575px) {
+    padding: 0 50px;
+  }
 
   .swiper-pagination {
     position: unset;

@@ -9,6 +9,10 @@ export const Container = styled.div`
   background: ${colors.grayLight3};
   width: 100%;
   padding: 56px 200px 45px 200px;
+
+  @media (max-width: 1144px) {
+    padding: 56px 30px 45px 30px;
+  }
 `;
 
 export const Content = styled.div`
@@ -26,6 +30,7 @@ export const DivSuperior = styled.div`
   flex-direction: row;
   justify-content: space-between;
   width: 100%;
+  flex-wrap: wrap;
 `;
 
 export const Logo = styled.div`
@@ -43,6 +48,13 @@ export const DivEndereco = styled.div`
   align-items: flex-start;
   width: 391px;
   height: 145px;
+
+  @media (max-width: 1144px) {
+    margin-top: 40px;
+    max-width: 391px;
+    width: 90%;
+    height: unset;
+  }
 `;
 
 export const Descricao = styled.p`
@@ -77,6 +89,9 @@ export const DivMenu = styled.ul`
   flex-direction: column;
   align-items: flex-start;
   justify-content: space-between;
+  @media (max-width: 1144px) {
+    margin-top: 40px;
+  }
 `;
 
 export const LinkFooter = styled(Link)`
@@ -97,6 +112,9 @@ export const DivSociais = styled.div`
   flex-direction: column;
   justify-content: flex-start;
   align-items: flex-start;
+  @media (max-width: 1262px) {
+    margin-top: 40px;
+  }
 `;
 
 export const TitleSociais = styled.h1`
@@ -146,6 +164,11 @@ export const DivDev = styled.div`
   display: flex;
   flex-direction: row;
   justify-content: space-between;
+  flex-wrap: wrap;
+
+  @media (max-width: 571px) {
+    justify-content: center;
+  }
 `;
 
 export const Direitos = styled.p`
@@ -153,6 +176,10 @@ export const Direitos = styled.p`
   font-family: "BrandonRegular", sans-serif;
   font-size: 16px;
   line-height: 24px;
+  @media (max-width: 571px) {
+    margin-bottom: 30px;
+    text-align: center;
+  }
 `;
 
 export const Dev = styled.p`

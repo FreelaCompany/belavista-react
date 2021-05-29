@@ -17,10 +17,25 @@ export default function Parceiros({ sobre }) {
       disableOnInteraction: false,
     },
     slidesPerView: 3,
-    // pagination: {
-    //   el: ".swiper-pagination",
-    //   clickable: true,
-    // },
+
+    breakpoints: {
+      // when window width is >= 320px
+      250: {
+        slidesPerView: 1,
+        spaceBetween: 20,
+      },
+
+      585: {
+        slidesPerView: 2,
+        spaceBetween: 20,
+      },
+
+      // when window width is >= 640px
+      995: {
+        slidesPerView: 3,
+        spaceBetween: 40,
+      },
+    },
   };
 
   return (

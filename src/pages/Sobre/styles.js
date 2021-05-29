@@ -23,7 +23,7 @@ export const Content = styled.div`
   align-self: center; // alinha elemento
   flex-direction: column;
   max-width: 802px;
-  width: 100%;
+  width: 90%;
   padding-top: 79px;
   padding-bottom: 50px;
 `;
@@ -33,13 +33,6 @@ export const Title = styled.h1`
   font-size: 43px;
   line-height: 47px;
   color: ${colors.black};
-  ${(props) =>
-    props.parceiros &&
-    `
-      align-self: center;
-      margin-top: 47px;
-      margin-bottom: 43px;
-      `}
 `;
 
 export const DivTexto = styled.div`
@@ -65,13 +58,3 @@ export const Divider = styled.div`
   height: 3px;
   background-color: ${colors.grayLight1};
 `;
-
-export const DivParceiros = styled.div`
-  display: flex;
-  width: 100%;
-  flex-direction: row;
-  justify-content: space-between;
-  align-items: center;
-`;
-
-export const Parceiro = styled.img``;

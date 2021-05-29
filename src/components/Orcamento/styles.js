@@ -12,10 +12,18 @@ export const Container = styled.div`
 
 export const Content = styled.div`
   max-width: 1200px;
+  width: 90%;
   margin: 0 auto;
   display: flex;
   justify-content: center;
   align-items: center;
+
+  @media (max-width: 767px) {
+    flex-direction: column;
+  }
+  @media (min-width: 768px) and (max-width: 1199px) {
+    justify-content: space-around;
+  }
 `;
 
 export const DivLeft = styled.div`
@@ -25,10 +33,23 @@ export const DivLeft = styled.div`
   background-repeat: no-repeat;
   background-size: cover;
   background-position: center;
+
+  @media (max-width: 575px) {
+    width: 320px;
+    height: 200px;
+  }
+  @media (min-width: 576px) and (max-width: 767px) {
+    width: 450px;
+    height: 320px;
+  }
+  @media (min-width: 768px) and (max-width: 1199px) {
+    width: 300px;
+    height: 260px;
+  }
 `;
 
 export const DivRight = styled.div`
-  height: 246px;
+  min-height: 246px;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
@@ -45,6 +66,12 @@ export const Title = styled.h1`
   span {
     color: ${colors.pumpikinLight1};
   }
+
+  @media (max-width: 1199px) {
+    width: 217px;
+    font-size: 33px;
+    line-height: 40px;
+  }
 `;
 
 export const Description = styled.p`
@@ -54,6 +81,20 @@ export const Description = styled.p`
   font-family: "PlayFair", sans-serif;
   line-height: 28px;
   color: ${colors.veryDarkGray};
+
+  @media (max-width: 575px) {
+    max-width: 350px;
+    width: 90%;
+    min-height: 100px;
+    font-size: 16px;
+    line-height: 28px;
+  }
+  @media (min-width: 576px) and (max-width: 1199px) {
+    width: 409px;
+    height: 100px;
+    font-size: 16px;
+    line-height: 28px;
+  }
 `;
 
 export const WhatsApp = styled.p`

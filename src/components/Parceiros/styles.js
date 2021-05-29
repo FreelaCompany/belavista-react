@@ -11,6 +11,10 @@ export const Container = styled.div`
   flex-direction: column;
   justify-content: space-between;
   align-items: center;
+
+  @media (max-width: 571px) {
+    padding: ${(props) => (props.sobre ? "42px 30px 72px 30px" : "72px")};
+  }
 `;
 
 export const Title = styled.h1`
@@ -19,6 +23,12 @@ export const Title = styled.h1`
   font-size: 43px;
   line-height: 47px;
   width: 324px;
+
+  @media (max-width: 571px) {
+    width: 90%;
+    font-size: 30px;
+    text-align: center;
+  }
 `;
 
 export const Content = styled.div`
