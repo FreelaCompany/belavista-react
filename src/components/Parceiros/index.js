@@ -11,7 +11,7 @@ import parceiro3 from "../../assets/images/parceiro3.png";
 
 export default function Parceiros({ sobre }) {
   const params = {
-    loop: false,
+    loop: true,
     autoplay: {
       delay: 8500,
       disableOnInteraction: false,
@@ -22,18 +22,18 @@ export default function Parceiros({ sobre }) {
       // when window width is >= 320px
       250: {
         slidesPerView: 1,
-        spaceBetween: 20,
+        spaceBetween: 50,
       },
 
       585: {
         slidesPerView: 2,
-        spaceBetween: 20,
+        spaceBetween: 60,
       },
 
       // when window width is >= 640px
       995: {
         slidesPerView: 3,
-        spaceBetween: 40,
+        spaceBetween: 120,
       },
     },
   };
