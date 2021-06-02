@@ -16,6 +16,15 @@ export const Banner = styled.section`
   background-image: url(${contatoPNG});
   background-position: center;
   background-repeat: no-repeat;
+
+  @media (max-width: 644px) {
+    display: none;
+  }
+  @media (min-width: 645px) and (max-width: 890px) {
+    background-size: contain;
+    height: 470px;
+    background-position: bottom;
+  }
 `;
 
 export const Content = styled.div`
@@ -23,9 +32,12 @@ export const Content = styled.div`
   align-self: center;
   flex-direction: column;
   max-width: 802px;
-  width: 100%;
+  width: 90%;
   padding-top: 79px;
   padding-bottom: 50px;
+  @media (max-width: 644px) {
+    margin-top: 203px;
+  }
 `;
 
 export const Title = styled.h1`
@@ -33,6 +45,11 @@ export const Title = styled.h1`
   font-size: 43px;
   line-height: 47px;
   color: ${colors.black};
+
+  @media (max-width: 456px) {
+    font-size: 38px;
+    line-height: 40px;
+  }
 `;
 
 export const DivTexto = styled.div`
@@ -126,6 +143,10 @@ export const InputText = styled.input`
     margin-bottom: 0;
   }
 
+  @media (max-width: 856px) {
+    width: 100%;
+  }
+
   ${(props) => props.nome && `width: 100%;`}
 `;
 
@@ -133,6 +154,7 @@ export const RowForm = styled.div`
   display: flex;
   justify-content: space-between;
   width: 100%;
+  flex-wrap: wrap;
 `;
 
 export const TextArea = styled.textarea`
@@ -152,10 +174,28 @@ export const Button = styled.button`
   color: ${colors.white}fff;
   font-family: "BrandonMedium";
   border-radius: 3px;
+
+  @media (max-width: 356px) {
+    width: 100%;
+  }
 `;
 
 export const Iframe = styled.iframe`
   width: 802px;
   height: 487px;
   border: none;
+  margin: 0 auto;
+  @media (max-width: 320px) {
+    width: 200px;
+    height: 200px;
+  }
+
+  @media (min-width: 321px) and (max-width: 575px) {
+    width: 290px;
+    height: 290px;
+  }
+  @media (min-width: 576px) and (max-width: 890px) {
+    width: 502px;
+    height: 387px;
+  }
 `;
