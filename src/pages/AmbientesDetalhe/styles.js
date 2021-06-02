@@ -11,7 +11,8 @@ export const Container = styled.div`
 `;
 
 export const Estilos = styled.section`
-  width: 1220px;
+  max-width: 1220px;
+  width: 90%;
   align-self: center;
   display: flex;
   flex-direction: row;
@@ -27,7 +28,8 @@ export const Estilos = styled.section`
 `;
 
 export const TitlePage = styled.div`
-  width: 1220px;
+  max-width: 1220px;
+  width: 90%;
   align-self: center;
   display: flex;
   flex-direction: column;
@@ -43,11 +45,17 @@ export const TitleAmb = styled.h1`
   line-height: 47px;
   color: ${colors.black}000;
   margin-bottom: 27px;
+
+  @media (max-width: 546px) {
+    font-size: 38px;
+    line-height: 42px;
+  }
 `;
 
 export const SubtitleArq = styled.p`
-  height: 140px;
-  width: 910px;
+  margin-bottom: 100px;
+  max-width: 910px;
+  width: 90%;
   font-size: 18px;
   font-family: "PlayFair", sans-serif;
   line-height: 28px;
