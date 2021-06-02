@@ -90,7 +90,7 @@ export const ButtonPrev = styled.button`
 
   @media screen and (max-width: 576px) {
     left: 48px;
-    top: 55%;
+    top: 40%;
   }
 `;
 
@@ -120,6 +120,6 @@ export const ButtonNext = styled.button`
 
   @media screen and (max-width: 576px) {
     right: 48px;
-    top: 55%;
+    top: 40%;
   }
 `;
