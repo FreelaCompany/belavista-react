@@ -61,11 +61,8 @@ export const DivProdutos = styled.div`
   }
 `;
 
-export const Produto = styled.div`
+export const Produto = styled.img`
   width: 385px;
   height: 385px;
-  background: ${({ url }) =>
-    url ? `url(${url}) no-repeat center center;` : `none`};
-  background-size: cover;
   margin: 20px 0;
 `;

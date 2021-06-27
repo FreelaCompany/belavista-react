@@ -16,6 +16,15 @@ export const Banner = styled.section`
   background-image: url(${sobrenosPNG});
   background-position: center;
   background-repeat: no-repeat;
+
+  @media (max-width: 644px) {
+    display: none;
+  }
+  @media (min-width: 645px) and (max-width: 890px) {
+    background-size: contain;
+    height: 470px;
+    background-position: bottom;
+  }
 `;
 
 export const Content = styled.div`
@@ -26,6 +35,9 @@ export const Content = styled.div`
   width: 90%;
   padding-top: 79px;
   padding-bottom: 50px;
+  @media (max-width: 644px) {
+    margin-top: 203px;
+  }
 `;
 
 export const Title = styled.h1`

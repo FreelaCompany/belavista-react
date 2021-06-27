@@ -52,7 +52,7 @@ export default function Produtos() {
         {produtosList
           ?.filter((produto) => produto.id_categoria === categoria)
           .map((produto, index) => (
-            <Produto key={index} url={produto.foto} />
+            <Produto key={index} src={produto.foto} alt={produto.foto} />
           ))}
       </DivProdutos>
     </Container>
